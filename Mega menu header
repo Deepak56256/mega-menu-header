@@ -1,0 +1,1460 @@
+/* Desktop code */
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="mega-menu-container">
+  <nav class="page-width">
+    <ul class="mega-menu">
+      {% for block in section.blocks %}
+        <li class="menu-item">
+          <a href="{{ block.settings.menuurl}}" class="menu-link">
+            <div class="menu-icon-title">
+               {% if block.settings.menuicon %}
+              <img src="{{ block.settings.menuicon | img_url:'master' }}" alt="{{ block.settings.menuname }}">
+              {% endif %}
+              <span>{{ block.settings.menuname }}</span>
+            </div>
+          </a>
+
+
+
+
+ {% if block.settings.megamenu1 == true %}
+          
+          <div class="submenu-wrapper">
+            <div class="submenu-content">
+
+
+              {% if block.settings.menuoneheading %}
+              <div class="submenu-column {% if block.settings.megamenu12  == false %} custom-1 {% endif %}">
+                <h3>{{ block.settings.menuoneheading }}</h3>
+                <ul>
+                  {% assign menu_items = linklists[block.settings.menu].links %}
+                  {% for item in menu_items %}
+                    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+               <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // You can replace this condition with whatever you need
+      // For example: user logged in, cart has items, specific page, etc.
+      const condition = true; // Change this to your actual condition
+      
+      const menuContainer = document.getElementById('menu-three-container1');
+      
+      if (condition) {
+        menuContainer.style.display = 'block';
+      }
+    });
+  </script>
+              {% endif %}
+
+
+
+              
+
+            {% if block.settings.menutwoheading %}
+  <div class="submenu-column {% if block.settings.megamenu120  == false %} custom-2 {% endif %} ">
+    <h3>{{ block.settings.menutwoheading }}</h3>
+    <ul>
+      {% assign menu_items = linklists[block.settings.menu2].links %}
+      {% for item in menu_items %}
+        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+
+    {% if block.settings.menuthreeheading  %}
+  <div class="submenu-column {% if block.settings.megamenu121  == false %} custom-3 {% endif %}" >
+    <h3>{{ block.settings.menuthreeheading }}</h3>
+    <ul>
+      {% assign menu_items = linklists[block.settings.menu3].links %}
+      {% for item in menu_items %}
+        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+
+
+
+              
+
+              {% if block.settings.productimage %}
+             <div class="submenu-column image-column {% if block.settings.megamenu122  == false %} custom-4 {% endif %}">
+         <a href="{{ block.settings.producturl1 }}">  
+           <img src="{{ block.settings.productimage | img_url:'master' }}" alt="Featured product">
+                <h2>{{ block.settings.productheading1 }}</h2>
+                 <p>{{ block.settings.producttext1 }}</p>
+           </a>
+              </div>
+               <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // You can replace this condition with whatever you need
+      // For example: user logged in, cart has items, specific page, etc.
+      const condition = true; // Change this to your actual condition
+      
+      const menuContainer = document.getElementById('menu-three-container4');
+      
+      if (condition) {
+        menuContainer.style.display = 'block';
+      }
+    });
+  </script>
+{% endif %}
+
+
+              {% if block.settings.productimage2 %}
+             <div class="submenu-column image-column {% if block.settings.megamenu123  == false %} custom-5 {% endif %}">
+         <a href="{{ block.settings.producturl2 }}">  
+           <img src="{{ block.settings.productimage2 | img_url:'master' }}" alt="Featured product">
+                <h2>{{ block.settings.productheading2 }}</h2>
+                 <p>{{ block.settings.producttext2 }}</p>
+           </a>
+              </div>
+                <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // You can replace this condition with whatever you need
+      // For example: user logged in, cart has items, specific page, etc.
+      const condition = true; // Change this to your actual condition
+      
+      const menuContainer = document.getElementById('menu-three-container5');
+      
+      if (condition) {
+        menuContainer.style.display = 'block';
+      }
+    });
+  </script>
+{% endif %}
+
+                
+            </div>
+          </div>
+         
+{% endif %}
+
+          
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+
+<style>
+
+  .custom-1 {
+     display: none;
+  }
+  .custom-2 {
+     display: none;
+  }
+  .custom-3 {
+     display: none;
+  }
+  .custom-4 {
+     display: none;
+  }
+  .custom-5 {
+     display: none;
+  }
+  /* Base styles */
+  .mega-menu-container {
+  
+    z-index: 100;
+  }
+  .destopmenu {
+    display: flex;
+    align-items: anchor-center;
+}
+  
+  .mega-menu {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+  
+  /* .menu-item {
+    position: relative;
+  } */
+  .header__wrapper .wrapper--full {
+    position: relative;
+}
+  .menu-link {
+    text-decoration: none;
+    color: #253d4e;
+    padding: 1em;
+    display: block;
+    font-weight: 700;
+    font-size: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-link:hover {
+    color: #000;
+  }
+  
+  .menu-icon-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 14.5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .menu-icon-title img {
+    width: 35px;
+    height: auto;
+  }
+  
+  /* Submenu styles */
+.submenu-wrapper {
+    position: absolute;
+    left: 0%;
+    top: 96%;
+    width: 100%;
+    background-color: white;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #c3b9b9;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 1000;
+    min-width: 800px;
+    padding: 20px;
+    padding-bottom: 39px;
+}
+  
+  .menu-item:hover .submenu-wrapper {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+  }
+  
+  .submenu-content {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 20px;
+    justify-content: center;
+}
+  .submenu-column h2 {
+    margin: 0;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+  
+.submenu-column h3 {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    height: 33px;
+}
+  
+  .submenu-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .submenu-column ul li {
+    margin-bottom: 8px;
+  }
+  
+.submenu-column ul li a {
+    color: #3e3939cf !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    display: block;
+    font-size: 15px;
+    padding: 0;
+    font-weight: 600;
+}
+
+
+.submenu-column.image-column p {
+  color: #3e3939cf !important;
+}
+
+  
+  .submenu-column ul li a:hover {
+    color: #000;
+  }
+  
+.image-column {
+    display: flex;
+    justify-content: ;
+    align-items: normal;
+}
+  
+  .image-column img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .mobilemenu {
+    display: none;
+}
+ header.theme__header {
+    overflow-x: clip;
+}
+  /* Mobile styles */
+  .submenu-content {
+    width: 97%;
+    margin: 0 auto;
+}
+
+  .submenu-column {
+    width: 20%;
+}
+  .submenu-column img {
+    width: 100%;
+    height: 349px!important;
+    object-fit: cover;
+}
+  .submenu-column a {
+    width: 100%;
+}
+  @media only screen and (max-width: 767px) {
+    .mega-menu-container {
+      display: none;
+    }
+  }
+</style>
+
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle menu item hover
+  const menuItems = document.querySelectorAll('.menu-item');
+  
+  menuItems.forEach(item => {
+    // Desktop hover
+    item.addEventListener('mouseenter', function() {
+      // Close any other open menus
+      document.querySelectorAll('.submenu-wrapper').forEach(menu => {
+        if (menu !== this.querySelector('.submenu-wrapper')) {
+          menu.style.opacity = '0';
+          menu.style.visibility = 'hidden';
+          menu.style.transform = 'translateY(10px)';
+        }
+      });
+      
+      // Open this menu
+      const submenu = this.querySelector('.submenu-wrapper');
+      if (submenu) {
+        submenu.style.opacity = '1';
+        submenu.style.visibility = 'visible';
+        submenu.style.transform = 'translateY(0)';
+      }
+    });
+    
+    // Keep menu open when hovering over submenu
+    const submenu = item.querySelector('.submenu-wrapper');
+    if (submenu) {
+      submenu.addEventListener('mouseenter', function() {
+        this.style.opacity = '1';
+        this.style.visibility = 'visible';
+        this.style.transform = 'translateY(0)';
+      });
+      
+      submenu.addEventListener('mouseleave', function() {
+        this.style.opacity = '0';
+        this.style.visibility = 'hidden';
+        this.style.transform = 'translateY(10px)';
+      });
+    }
+  });
+  
+  // Close all menus when clicking anywhere
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.menu-item')) {
+      document.querySelectorAll('.submenu-wrapper').forEach(menu => {
+        menu.style.opacity = '0';
+        menu.style.visibility = 'hidden';
+        menu.style.transform = 'translateY(10px)';
+      });
+    }
+  });
+}); </script>
+
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle menu item hover
+  const menuItems = document.querySelectorAll('.menu-item');
+  const wrapperFull = document.querySelector('.wrapper--full');
+  
+  menuItems.forEach(item => {
+    // Desktop hover
+    item.addEventListener('mouseenter', function() {
+      // Close any other open menus
+      document.querySelectorAll('.submenu-wrapper').forEach(menu => {
+        if (menu !== this.querySelector('.submenu-wrapper')) {
+          menu.style.opacity = '0';
+          menu.style.visibility = 'hidden';
+          menu.style.transform = 'translateY(10px)';
+        }
+      });
+      
+      // Open this menu
+      const submenu = this.querySelector('.submenu-wrapper');
+      if (submenu) {
+        submenu.style.opacity = '1';
+        submenu.style.visibility = 'visible';
+        submenu.style.transform = 'translateY(0)';
+      }
+    });
+    
+    // Keep menu open when hovering over submenu
+    const submenu = item.querySelector('.submenu-wrapper');
+    if (submenu) {
+      submenu.addEventListener('mouseenter', function() {
+        this.style.opacity = '1';
+        this.style.visibility = 'visible';
+        this.style.transform = 'translateY(0)';
+      });
+      
+      submenu.addEventListener('mouseleave', function() {
+        this.style.opacity = '0';
+        this.style.visibility = 'hidden';
+        this.style.transform = 'translateY(10px)';
+      });
+    }
+  });
+  
+  // Close all menus when mouse leaves the .wrapper--full container
+  wrapperFull.addEventListener('mouseleave', function(e) {
+    // Check if we're leaving to go to a child element
+    if (!this.contains(e.relatedTarget)) {
+      document.querySelectorAll('.submenu-wrapper').forEach(menu => {
+        menu.style.opacity = '0';
+        menu.style.visibility = 'hidden';
+        menu.style.transform = 'translateY(10px)';
+      });
+    }
+  });
+});
+</script> 
+
+
+
+
+
+
+/* Mobile code */
+
+
+
+<div class="tab-block" id = "tab-block">
+  
+  <ul class="tab-mnu">
+    <li class = "active" >{{ section.settings.hmmtbheading }}</li>
+    <li>{{ section.settings.hmmtbheading2 }}</li>
+    <li>{{ section.settings.hmmtbheading3 }}</li>
+
+  </ul>
+  
+  <div class="tab-cont">
+    <div class="tab-pane">
+      
+{% if section.settings.mobile_menu_linklist != blank %}
+  {% assign menu = linklists[section.settings.mobile_menu_linklist] %}
+
+  <nav class="mobile-menu-drawer">
+    <!-- Root Menu -->
+    <ul class="menu-level menu-root active" data-level="0">
+   
+      {% for link in menu.links %}
+        <li class="menu-item">
+          {% if link.links.size > 0 %}
+            <button class="submenu-open" data-target="submenu-0-{{ forloop.index0 }}">
+              <span>{{ link.title }}</span><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_1.svg?v=1747463617">
+            </button>
+          {% else %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Level 1 Menus -->
+    {% for link in menu.links %}
+      {% if link.links.size > 0 %}
+        <ul class="menu-level submenu" id="submenu-0-{{ forloop.index0 }}" data-parent="root">
+          <li class="menu-header">
+            <button class="submenu-back"><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_2.svg?v=1747464028"> <p>{{ link.title }}</p></button> 
+          </li>
+          {% for child in link.links %}
+            <li class="menu-item">
+              {% if child.links.size > 0 %}
+                <button class="submenu-open" data-target="submenu-1-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}">
+                  <span>{{ child.title }}</span><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_1.svg?v=1747463617">
+                </button>
+              {% else %}
+                <a href="{{ child.url }}">{{ child.title }}</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Level 2 Menus -->
+        {% for child in link.links %}
+          {% if child.links.size > 0 %}
+            <ul class="menu-level submenu" id="submenu-1-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" data-parent="submenu-0-{{ forloop.parentloop.index0 }}">
+              <li class="menu-header">
+                <button class="submenu-back"><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_2.svg?v=1747464028"> <p>{{ child.title }}</p></button> 
+              </li>
+              {% for grandchild in child.links %}
+                <li class="menu-item">
+                  <a href="{{ grandchild.url }}">{{ grandchild.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}
+    </div>
+     <div class="tab-pane">
+       
+{% if section.settings.mobile_menu_linklist2 != blank %}
+  {% assign second_menu = linklists[section.settings.mobile_menu_linklist2] %}
+
+  <nav class="mobile-menu-drawer second-menu">
+    <!-- Root Menu -->
+    <ul class="menu-level menu-root active" data-level="0">
+     
+      {% for link in second_menu.links %}
+        <li class="menu-item">
+          {% if link.links.size > 0 %}
+            <button class="submenu-open" data-target="second-submenu-0-{{ forloop.index0 }}">
+              <span>{{ link.title }}</span><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_1.svg?v=1747463617">
+            </button>
+          {% else %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Level 1 Menus -->
+    {% for link in second_menu.links %}
+      {% if link.links.size > 0 %}
+        <ul class="menu-level submenu" id="second-submenu-0-{{ forloop.index0 }}" data-parent="root">
+          <li class="menu-header">
+            <button class="submenu-back"><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_2.svg?v=1747464028"> <p>{{ link.title }}</p></button> 
+          </li>
+          {% for child in link.links %}
+            <li class="menu-item">
+              {% if child.links.size > 0 %}
+                <button class="submenu-open" data-target="second-submenu-1-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}">
+                  <span>{{ child.title }}</span><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_1.svg?v=1747463617">
+                </button>
+              {% else %}
+                <a href="{{ child.url }}">{{ child.title }}</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Level 2 Menus -->
+        {% for child in link.links %}
+          {% if child.links.size > 0 %}
+            <ul class="menu-level submenu" id="second-submenu-1-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" data-parent="second-submenu-0-{{ forloop.parentloop.index0 }}">
+              <li class="menu-header">
+                <button class="submenu-back"><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_2.svg?v=1747464028"> <p>{{ child.title }}</p></button> 
+              </li>
+              {% for grandchild in child.links %}
+                <li class="menu-item">
+                  <a href="{{ grandchild.url }}">{{ grandchild.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}
+
+
+     </div>
+	  <div class="tab-pane">
+        
+
+{% if section.settings.mobile_menu_linklist3 != blank %}
+  {% assign third_menu = linklists[section.settings.mobile_menu_linklist3] %}
+
+  <nav class="mobile-menu-drawer third-menu">
+    <!-- Root Menu -->
+    <ul class="menu-level menu-root active" data-level="0">
+     
+      {% for link in third_menu.links %}
+        <li class="menu-item">
+          {% if link.links.size > 0 %}
+            <button class="submenu-open" data-target="third-submenu-0-{{ forloop.index0 }}">
+              <span>{{ link.title }}</span><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_1.svg?v=1747463617">
+            </button>
+          {% else %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Level 1 Menus -->
+    {% for link in third_menu.links %}
+      {% if link.links.size > 0 %}
+        <ul class="menu-level submenu" id="third-submenu-0-{{ forloop.index0 }}" data-parent="root">
+          <li class="menu-header">
+            <button class="submenu-back"><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_2.svg?v=1747464028"> <p>{{ link.title }}</p></button>
+          </li>
+          {% for child in link.links %}
+            <li class="menu-item">
+              {% if child.links.size > 0 %}
+                <button class="submenu-open" data-target="third-submenu-1-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}">
+                  <span>{{ child.title }}</span><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_1.svg?v=1747463617">
+                </button>
+              {% else %}
+                <a href="{{ child.url }}">{{ child.title }}</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Level 2 Menus -->
+        {% for child in link.links %}
+          {% if child.links.size > 0 %}
+            <ul class="menu-level submenu" id="third-submenu-1-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" data-parent="third-submenu-0-{{ forloop.parentloop.index0 }}">
+              <li class="menu-header">
+                <button class="submenu-back"><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_2.svg?v=1747464028"> <p>{{ child.title }}</p></button> 
+              </li>
+              {% for grandchild in child.links %}
+                <li class="menu-item">
+                  <a href="{{ grandchild.url }}">{{ grandchild.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}
+
+
+      </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="daccordian">
+  <a class="dtriad" href="{{ section.settings.hmmilaccountlink }}"><div>{{ section.settings.hmmilaccount1 }}</div><div>{{ section.settings.hmmilaccount2 }}</div></a>
+  <div class="accordion">
+  <div class="accordion-item ">
+   <button class="accordion-header">
+  {{ section.settings.accord1title1 }} <span class="accordion-icon">+</span>
+</button>
+    <div class="accordion-content">
+     {% if section.settings.mobile_menu_linklist4 != blank %}
+  {% assign fourth_menu = linklists[section.settings.mobile_menu_linklist4] %}
+
+  <nav class="mobile-menu-drawer fourth-menu">
+    <!-- Root Menu -->
+    <ul class="menu-level menu-root active" data-level="0">
+      <li class="menu-header">{{ fourth_menu.title }}</li>
+      {% for link in fourth_menu.links %}
+        <li class="menu-item">
+          {% if link.links.size > 0 %}
+            <button class="submenu-open" data-target="fourth-submenu-0-{{ forloop.index0 }}">
+              <span>{{ link.title }}</span><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_1.svg?v=1747463617">
+            </button>
+          {% else %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Level 1 Submenus -->
+    {% for link in fourth_menu.links %}
+      {% if link.links.size > 0 %}
+        <ul class="menu-level submenu" id="fourth-submenu-0-{{ forloop.index0 }}" data-parent="root">
+          <li class="menu-header">
+            <button class="submenu-back"><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_2.svg?v=1747464028"> <p>{{ link.title }}</p></button> 
+          </li>
+          {% for child in link.links %}
+            <li class="menu-item">
+              {% if child.links.size > 0 %}
+                <button class="submenu-open" data-target="fourth-submenu-1-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}">
+                  <span>{{ child.title }}</span><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_1.svg?v=1747463617">
+                </button>
+              {% else %}
+                <a href="{{ child.url }}">{{ child.title }}</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Level 2 Sub-submenus -->
+        {% for child in link.links %}
+          {% if child.links.size > 0 %}
+            <ul class="menu-level submenu" id="fourth-submenu-1-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" data-parent="fourth-submenu-0-{{ forloop.parentloop.index0 }}">
+              <li class="menu-header">
+                <button class="submenu-back"><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_2.svg?v=1747464028"> <p>{{ child.title }}</p></button> 
+              </li>
+              {% for grandchild in child.links %}
+                <li class="menu-item">
+                  <a href="{{ grandchild.url }}">{{ grandchild.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}
+
+    </div>
+  </div>
+  <div class="accordion-item">
+  <button class="accordion-header">
+  {{ section.settings.accord2title2 }} <span class="accordion-icon">+</span>
+</button>
+    <div class="accordion-content">
+      <p>{% if section.settings.mobile_menu_linklist5 != blank %}
+  {% assign fifth_menu = linklists[section.settings.mobile_menu_linklist5] %}
+
+  <nav class="mobile-menu-drawer fifth-menu">
+    <!-- Root Menu -->
+    <ul class="menu-level menu-root active" data-level="0">
+      <li class="menu-header">{{ fifth_menu.title }}</li>
+      {% for link in fifth_menu.links %}
+        <li class="menu-item">
+          {% if link.links.size > 0 %}
+            <button class="submenu-open" data-target="fifth-submenu-0-{{ forloop.index0 }}">
+              <span>{{ link.title }}</span><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_1.svg?v=1747463617">
+            </button>
+          {% else %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Level 1 Submenus -->
+    {% for link in fifth_menu.links %}
+      {% if link.links.size > 0 %}
+        <ul class="menu-level submenu" id="fifth-submenu-0-{{ forloop.index0 }}" data-parent="root">
+          <li class="menu-header">
+            <button class="submenu-back"><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_2.svg?v=1747464028"> <p>{{ link.title }}</p></button> 
+          </li>
+          {% for child in link.links %}
+            <li class="menu-item">
+              {% if child.links.size > 0 %}
+                <button class="submenu-open" data-target="fifth-submenu-1-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}">
+                  <span>{{ child.title }}</span><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_1.svg?v=1747463617">
+                </button>
+              {% else %}
+                <a href="{{ child.url }}">{{ child.title }}</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Level 2 Grandchild Menus -->
+        {% for child in link.links %}
+          {% if child.links.size > 0 %}
+            <ul class="menu-level submenu" id="fifth-submenu-1-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" data-parent="fifth-submenu-0-{{ forloop.parentloop.index0 }}">
+              <li class="menu-header">
+                <button class="submenu-back"><img class="arrow" src="https://cdn.shopify.com/s/files/1/1735/6525/files/arrow-right-bold-svgrepo-com_2.svg?v=1747464028"> <p>{{ child.title }}</p></button>
+              </li>
+              {% for grandchild in child.links %}
+                <li class="menu-item">
+                  <a href="{{ grandchild.url }}">{{ grandchild.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}
+</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<style>
+  .daccordian {
+    background-color: #f4f4f4;
+}
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.accordion-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion-content {
+  display: none;
+  padding: 10px 0;
+}
+.accordion-item.active .accordion-content {
+  display: block;
+}
+  .daccordian .dtriad {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 18px;
+    font-size: 14px;
+    text-decoration: underline;
+}
+</style>
+
+
+
+        
+<script>
+document.querySelectorAll('.accordion-header').forEach(button => {
+  button.addEventListener('click', () => {
+    const accordionItem = button.parentElement;
+    const icon = button.querySelector('.accordion-icon');
+
+    accordionItem.classList.toggle('active');
+
+    // Toggle plus/minus
+    if (accordionItem.classList.contains('active')) {
+      icon.textContent = '−';
+    } else {
+      icon.textContent = '+';
+    }
+  });
+});
+</script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuDrawer = document.querySelector(".mobile-menu-drawer");
+    const submenuOpeners = menuDrawer.querySelectorAll(".submenu-open");
+    const backButtons = menuDrawer.querySelectorAll(".submenu-back");
+
+    submenuOpeners.forEach(button => {
+      button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-target");
+        const targetMenu = document.getElementById(targetId);
+        if (targetMenu) {
+          menuDrawer.querySelectorAll(".menu-level").forEach(m => m.classList.remove("active"));
+          targetMenu.classList.add("active");
+        }
+      });
+    });
+
+    backButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const currentMenu = button.closest(".menu-level");
+        const currentId = currentMenu.id;
+        const parentId = currentMenu.getAttribute("data-parent");
+        const parentMenu = parentId === "root"
+          ? menuDrawer.querySelector(".menu-root")
+          : document.getElementById(parentId);
+
+        if (parentMenu) {
+          menuDrawer.querySelectorAll(".menu-level").forEach(m => m.classList.remove("active"));
+          parentMenu.classList.add("active");
+        }
+      });
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const drawers = document.querySelectorAll(".mobile-menu-drawer");
+
+    drawers.forEach(menuDrawer => {
+      const submenuOpeners = menuDrawer.querySelectorAll(".submenu-open");
+      const backButtons = menuDrawer.querySelectorAll(".submenu-back");
+
+      submenuOpeners.forEach(button => {
+        button.addEventListener("click", () => {
+          const targetId = button.getAttribute("data-target");
+          const targetMenu = document.getElementById(targetId);
+          if (targetMenu) {
+            menuDrawer.querySelectorAll(".menu-level").forEach(m => m.classList.remove("active"));
+            targetMenu.classList.add("active");
+          }
+        });
+      });
+
+      backButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const currentMenu = button.closest(".menu-level");
+          const parentId = currentMenu.getAttribute("data-parent");
+          const parentMenu = parentId === "root"
+            ? menuDrawer.querySelector(".menu-root")
+            : document.getElementById(parentId);
+
+          if (parentMenu) {
+            menuDrawer.querySelectorAll(".menu-level").forEach(m => m.classList.remove("active"));
+            parentMenu.classList.add("active");
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const drawers = document.querySelectorAll(".mobile-menu-drawer");
+
+    drawers.forEach(menuDrawer => {
+      const submenuOpeners = menuDrawer.querySelectorAll(".submenu-open");
+      const backButtons = menuDrawer.querySelectorAll(".submenu-back");
+
+      submenuOpeners.forEach(button => {
+        button.addEventListener("click", () => {
+          const targetId = button.getAttribute("data-target");
+          const targetMenu = document.getElementById(targetId);
+          if (targetMenu) {
+            menuDrawer.querySelectorAll(".menu-level").forEach(m => m.classList.remove("active"));
+            targetMenu.classList.add("active");
+          }
+        });
+      });
+
+      backButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const currentMenu = button.closest(".menu-level");
+          const parentId = currentMenu.getAttribute("data-parent");
+          const parentMenu = parentId === "root"
+            ? menuDrawer.querySelector(".menu-root")
+            : document.getElementById(parentId);
+
+          if (parentMenu) {
+            menuDrawer.querySelectorAll(".menu-level").forEach(m => m.classList.remove("active"));
+            parentMenu.classList.add("active");
+          }
+        });
+      });
+    });
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const drawers = document.querySelectorAll(".mobile-menu-drawer");
+
+  drawers.forEach(menuDrawer => {
+    const submenuOpeners = menuDrawer.querySelectorAll(".submenu-open");
+    const backButtons = menuDrawer.querySelectorAll(".submenu-back");
+
+    submenuOpeners.forEach(button => {
+      button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-target");
+        const targetMenu = document.getElementById(targetId);
+        if (targetMenu) {
+          menuDrawer.querySelectorAll(".menu-level").forEach(m => m.classList.remove("active"));
+          targetMenu.classList.add("active");
+        }
+      });
+    });
+
+    backButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const currentMenu = button.closest(".menu-level");
+        const parentId = currentMenu.getAttribute("data-parent");
+        const parentMenu = parentId === "root"
+          ? menuDrawer.querySelector(".menu-root")
+          : document.getElementById(parentId);
+
+        if (parentMenu) {
+          menuDrawer.querySelectorAll(".menu-level").forEach(m => m.classList.remove("active"));
+          parentMenu.classList.add("active");
+        }
+      });
+    });
+  });
+});
+
+
+  
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const drawers = document.querySelectorAll(".mobile-menu-drawer");
+
+  drawers.forEach(menuDrawer => {
+    const submenuOpeners = menuDrawer.querySelectorAll(".submenu-open");
+    const backButtons = menuDrawer.querySelectorAll(".submenu-back");
+
+    submenuOpeners.forEach(button => {
+      button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-target");
+        const targetMenu = document.getElementById(targetId);
+        if (targetMenu) {
+          menuDrawer.querySelectorAll(".menu-level").forEach(m => m.classList.remove("active"));
+          targetMenu.classList.add("active");
+        }
+      });
+    });
+
+    backButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const currentMenu = button.closest(".menu-level");
+        const parentId = currentMenu.getAttribute("data-parent");
+        const parentMenu = parentId === "root"
+          ? menuDrawer.querySelector(".menu-root")
+          : document.getElementById(parentId);
+
+        if (parentMenu) {
+          menuDrawer.querySelectorAll(".menu-level").forEach(m => m.classList.remove("active"));
+          parentMenu.classList.add("active");
+        }
+      });
+    });
+  });
+});
+
+</script>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+
+.tab-block{
+  width:$tabwidth;
+  height:auto;
+  margin:0px auto;
+  .tab-mnu{
+    display:block;
+    list-style:none;
+    &:after{
+      content:'';
+      display:table;
+      clear:both;
+    }
+    li{
+      box-sizing:border-box;
+      float:left;
+      background-color: $tabc;
+      color:$tabfontc;
+      width:$tabwidth/5;
+      text-align:center;
+      padding-top:13px;
+      padding-bottom:13px;
+      cursor:pointer;
+      &:not(:last-child){
+        border-right:1px solid $bgc;
+      }
+      &:hover:not(.active){
+        background-color: lighten($tabc,5%);
+      }
+    }
+    .active{
+        background-color: #fff;
+        color:$fontc;
+        border-bottom:1px solid lighten($fontc,55%);
+      cursor:default;
+      }
+  }
+  
+  .tab-cont{
+    box-sizing:border-box;
+    border-top:1px solid white;
+    background-color:$tabfontc;
+    color:darken($fontc,20%);
+    .tab-pane{
+      padding:10px 2px!important;
+    }
+  }
+    
+}
+  .tab-block {
+    width: $tabwidth;
+    height: auto!important;
+    margin: 0!important;
+}
+.mobile-menu-drawer {
+    width: 100%!important;
+    background: #fff;
+    height: 45vh!important;
+    overflow: hidden;
+    position: relative;
+}
+  .tab-mnu li {
+    width: 33%;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-block: 5px!important;
+    padding-bottom: 8px!important;
+}
+  .tab-mnu li.active {
+    border-bottom: 2px solid black;
+    color: black;
+}
+  ul.tab-mnu {
+    padding-inline: 17px!important;
+    margin-top: 11px!important;
+}
+  ul.tab-mnu {
+    margin-bottom: 0!important;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+  
+  var tabWrapper = $('#tab-block'),
+      tabMnu = tabWrapper.find('.tab-mnu  li'),
+      tabContent = tabWrapper.find('.tab-cont > .tab-pane');
+  
+  tabContent.not(':first-child').hide();
+  
+  tabMnu.each(function(i){
+    $(this).attr('data-tab','tab'+i);
+  });
+  tabContent.each(function(i){
+    $(this).attr('data-tab','tab'+i);
+  });
+  
+  tabMnu.click(function(){
+    var tabData = $(this).data('tab');
+    tabWrapper.find(tabContent).hide();
+    tabWrapper.find(tabContent).filter('[data-tab='+tabData+']').show(); 
+  });
+  
+  $('.tab-mnu > li').click(function(){
+    var before = $('.tab-mnu li.active');
+    before.removeClass('active');
+    $(this).addClass('active');
+   });
+  
+});
+</script>
+<style>
+.mobile-menu-drawer {
+  width: 300px;
+  background: #fff;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-level {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  background: #fff;
+  z-index: 1;
+}
+
+.menu-level.active {
+  transform: translateX(0%);
+  z-index: 2;
+}
+
+.menu-header {
+  font-weight: bold;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/*.menu-item {
+  border-bottom: 1px solid #f1f1f1;
+}*/
+
+.menu-item a,
+.menu-item button {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.submenu-back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: auto;
+  display: flex;
+    gap: 10px;
+}
+
+.arrow {
+  color: #999;
+  width:16px;
+}
+  
+
+
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  .accordion {
+  max-width: 600px;
+  margin: 20px auto;
+  /*border: 1px solid #ccc;*/
+  border-radius: 5px;
+}
+.accordion-header {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  background: #f5f5f5;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.accordion-header:hover {
+  background: #eaeaea;
+}
+.accordion-content {
+  padding: 15px;
+  display: none;
+  background: #fff;
+  border-top: 1px solid #ccc;
+}
+.accordion-content.open {
+  display: block;
+}
+.accordion {
+    margin: 0;
+    padding-inline: 2px;
+}
+</style>
+
+<script>
+  document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const content = header.nextElementSibling;
+    content.classList.toggle('open');
+  });
+});
+
+</script>
+
+
+ "blocks": [
+    {
+
+{
+      "type": "group",
+      "name": "Add menu block",
+      "settings": [
+          {
+          "type": "checkbox",
+          "label": "Mega menu (Hide / Show)",
+          "id": "megamenu1",
+            "default":true
+        },
+        {
+          "type": "image_picker",
+          "label": "Add menu icon",
+          "id": "menuicon"
+        },
+        {
+          "type": "url",
+          "label": "Add URL",
+          "id": "menuurl"
+        },
+        {
+          "type": "text",
+          "label": "Menu Name",
+          "id": "menuname"
+        },
+        {
+      "type": "header",
+      "content": "Add Menu 1 List"
+    },
+         {
+          "type": "checkbox",
+          "label": "Menu One (Hide / Show)",
+          "id": "megamenu12",
+            "default":true
+        },
+        {
+          "type": "text",
+          "label": "Menu One Heading",
+          "id": "menuoneheading"
+        },
+         {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu one"
+        },
+         {
+      "type": "header",
+      "content": "Add Menu 2 List"
+    },
+        {
+          "type": "checkbox",
+          "label": "Menu Two (Hide / Show)",
+          "id": "megamenu120",
+            "default":true
+        },
+        {
+          "type": "text",
+          "label": "Menu Two Heading",
+          "id": "menutwoheading"
+        },
+        {
+          "type": "link_list",
+          "id": "menu2",
+          "label": "Menu Two"
+        },
+         {
+      "type": "header",
+      "content": "Add Menu 3 List"
+    },
+        {
+          "type": "checkbox",
+          "label": "Menu Three (Hide / Show)",
+          "id": "megamenu121",
+            "default":true
+        },
+        {
+          "type": "text",
+          "label": "Menu Three Heading",
+          "id": "menuthreeheading"
+        },
+        {
+          "type": "link_list",
+          "id": "menu3",
+          "label": "Menu Three"
+        },
+         {
+      "type": "header",
+      "content": "Product 1  Detail"
+    },
+        {
+          "type": "checkbox",
+          "label": "Product 1  Detail (Hide / Show)",
+          "id": "megamenu122",
+            "default":true
+        },
+        {
+          "type": "image_picker",
+          "label": "Product Image 1",
+          "id": "productimage"
+        },
+        {
+          "type": "text",
+          "label": "Product Heading 1",
+          "id": "productheading1"
+        },
+         {
+          "type": "text",
+          "label": "Product Text 1",
+          "id": "producttext1"
+        },
+        {
+          "type": "url",
+          "label": "Product Url 1",
+          "id": "producturl1"
+        },
+        {
+      "type": "header",
+      "content": "Product 2  Detail"
+    },
+        {
+          "type": "checkbox",
+          "label": "Product 2  Detail (Hide / Show)",
+          "id": "megamenu123",
+            "default":true
+        },
+        {
+          "type": "image_picker",
+          "label": "Product Image 2",
+          "id": "productimage2"
+        },
+         {
+          "type": "text",
+          "label": "Product Heading 2",
+          "id": "productheading2"
+        },
+         {
+          "type": "text",
+          "label": "Product Text 2",
+          "id": "producttext2"
+        },
+        {
+          "type": "url",
+          "label": "Product Url 2",
+          "id": "producturl2"
+        }
+      ]
+    },
+ ]
+    },
