@@ -1120,7 +1120,7 @@ document.addEventListener("DOMContentLoaded", function () {
     width: 100%!important;
     background: #fff;
     height: 45vh!important;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
 }
   .tab-mnu li {
@@ -1179,7 +1179,7 @@ $(document).ready(function(){
   width: 300px;
   background: #fff;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
 }
 
@@ -1294,6 +1294,30 @@ $(document).ready(function(){
     padding-inline: 2px;
 }
 </style>
+<style>
+  /* Mobile-specific styles */
+  @media only screen and (max-width: 767px) {
+    .tab-cont {
+      height: 45vh; /* Fixed height for scrollable area */
+      overflow-y: auto; /* Enable scrolling */
+      -webkit-overflow-scrolling: touch; /* Smooth iOS scrolling */
+    }
+    
+    .mobile-menu-drawer {
+      height: 100% !important;
+      overflow-y: visible !important;
+    }
+    
+    .menu-level {
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+</style>
+
+ 
+
 
 <script>
   document.querySelectorAll('.accordion-header').forEach(header => {
